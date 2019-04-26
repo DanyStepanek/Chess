@@ -1,0 +1,61 @@
+
+//Pieces.h
+class Piece
+  position
+  move()
+  takeoff()
+
+class King:Piece
+  newPosition: 1U 1D 1L 1P 1UL 1UR 1DL 1DR
+
+class Queen:Piece
+  newPosition: Up Down Left Right UL UR DL DR
+
+class Bishop:Piece
+  newPositon: UL UR DL DR
+
+class Knight:Piece
+  newPosition: A+2+1
+
+class Rook:Piece
+  newPosition: Up Down Left Right
+
+class Pawn:Piece
+  newPositionFirst: 1Up 2Up
+  newPostion: 1Up 1UL 1UR
+
+///////////////////
+
+//
+class MoveStack
+  push()
+  pop()
+  top()
+  empty()
+
+class Game
+
+  PassMoves:MoveStack
+  NextMoves:MoveStack
+
+  loop()
+    onsignal GetPiece
+
+
+    onsignal Move
+      GetPiece()
+      move()
+      ....
+
+    onsignal Forward
+      NextMoves::pop()
+      PassMoves::push()
+
+    onsignal Backward
+      PassMoves::pop()
+      NextMoves::push()
+
+    onsignal End
+      seeResult
+      ....
+      exit()
