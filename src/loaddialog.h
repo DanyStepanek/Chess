@@ -12,6 +12,8 @@ class LoadDialog;
 class LoadDialog : public QDialog
 {
     Q_OBJECT
+signals:
+    void loadButtonClicked();
 
 public:
 

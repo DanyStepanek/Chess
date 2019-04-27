@@ -10,7 +10,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-}
+
+ }
 
 MainWindow::~MainWindow()
 {
@@ -29,13 +30,38 @@ void MainWindow::on_actionNew_Tab_triggered()
    addNewTab();
 }
 
+void MainWindow::loadFile(){
+   QFile file(lDialog->path);
+
+
+   if(file.open(QIODevice::ReadWrite)){
+        QTextStream input(&file);
+        while(!input.atEnd()){
+            QString move = input.readLine();
+            moves.append(move);
+
+        }
+
+   }
+   else{
+        perror("File cannot be opened.");
+   }
+
+    ui->listWidget->addItems(moves);
+
+    file.close();
+
+}
 
 void MainWindow::on_actionLoad_triggered()
 {
     lDialog = new LoadDialog(this);
     lDialog->show();
+    QObject::connect(lDialog, SIGNAL(loadButtonClicked()), this, SLOT(loadFile()));
 
-    QString filePath = lDialog->path;
+
+
+
 }
 
 void MainWindow::on_actionSave_triggered()

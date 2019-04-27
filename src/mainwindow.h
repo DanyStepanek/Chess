@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QFile>
+#include <QTextStream>
+
 #include "loaddialog.h"
 #include "savedialog.h"
 #include "aboutdialog.h"
@@ -38,6 +41,8 @@ private slots:
 
     void addNewTab();
 
+    void loadFile();
+
 private:
     Ui::MainWindow *ui;
     LoadDialog *lDialog;
@@ -46,6 +51,7 @@ private:
 
     QFile file;
     int tabCount = 0;
+    QList<QString> moves;
 };
 
 #endif // MAINWINDOW_H

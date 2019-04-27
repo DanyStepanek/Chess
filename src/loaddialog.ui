@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>240</width>
-    <height>320</height>
+    <width>320</width>
+    <height>400</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -65,6 +65,22 @@
     <hint type="destinationlabel">
      <x>53</x>
      <y>348</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>loadButton</sender>
+   <signal>clicked()</signal>
+   <receiver>LoadDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>188</x>
+     <y>300</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>188</x>
+     <y>328</y>
     </hint>
    </hints>
   </connection>

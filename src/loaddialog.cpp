@@ -17,6 +17,8 @@ LoadDialog::LoadDialog(QWidget *parent) :
 
     ui->treeView->expand(index);
     ui->treeView->setCurrentIndex(index);
+
+
 }
 
 LoadDialog::~LoadDialog()
@@ -35,7 +37,8 @@ void LoadDialog::on_loadButton_clicked()
     if(!index.isValid())
         return;
 
-    QString path = filemodel->filePath(index);
+    path = filemodel->filePath(index);
 
+    emit loadButtonClicked();
 
 }
